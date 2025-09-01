@@ -13,7 +13,6 @@ Copy button copies content to clipboard.
 
 Download the program for your platform from the latest [build action]().
 
-
 ## License
 
 This software is open source and released under the [MIT License](LICENSE.txt).
