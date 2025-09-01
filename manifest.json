@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "SP-jobprinter",
-	"version": "1.2",
+	"version": "1.2.1",
 
 	"description": "Print a label from SimplyPrint",
 
