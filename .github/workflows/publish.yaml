@@ -45,14 +45,14 @@ jobs:
                   sourceCode: sources.zip
                   channel: unlisted
 
-          # Various metadata you can set through the API. See the documentation for the
-          # --amo-metadata parameter to web-ext sign at
-          # https://extensionworkshop.com/documentation/develop/web-ext-command-reference/#web-ext-sign
-          # for more information. You can leave out metaDataFile if all you want to set is approval
-          # notes, release notes, or a license.
-          # metaDataFile: amo_metadata.json
-          approvalNotes: "Please find more information at https://github.com/kewisch/action-web-ext"
-          releaseNotes: ${{ github.event.release.body }}
+                  # Various metadata you can set through the API. See the documentation for the
+                  # --amo-metadata parameter to web-ext sign at
+                  # https://extensionworkshop.com/documentation/develop/web-ext-command-reference/#web-ext-sign
+                  # for more information. You can leave out metaDataFile if all you want to set is approval
+                  # notes, release notes, or a license.
+                  # metaDataFile: amo_metadata.json
+                  approvalNotes: "Please find more information at https://github.com/kewisch/action-web-ext"
+                  releaseNotes: ${{ github.event.release.body }}
 
                   # You can set one of the known licenses from
                   # https://mozilla.github.io/addons-server/topics/api/licenses.html#license-list
