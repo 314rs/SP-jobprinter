@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+		/>
+		<style>
+			body {
+				width: 400px;
+				/* min-height: 300px; */
+				height: min-content;
+				padding: 10px;
+				font-family: Arial, sans-serif;
+			}
+			#jsonDisplay {
+				background: #f5f5f5;
+				border: 1px solid #ddd;
+				padding: 10px;
+				white-space: pre-wrap;
+				font-family: monospace;
+				font-size: 12px;
+				max-height: 400px;
+				overflow-y: auto;
+			}
+			button {
+				padding: 10px 20px;
+				/* font-size: 14px; */
+				cursor: pointer;
+				border: none;
+				border-radius: 6px;
+			}
+			@media print {
+				body * {
+					visibility: hidden;
+				}
+				#printPage, #printPage * {
+					visibility: visible;
+				}
+				#printPage {
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div style="display: flex; align-items: center; margin-bottom: 10px">
+			<img
+				src="printer-color.svg"
+				alt="Printer Logo"
+				style="width: 32px; height: 32px; margin-right: 10px"
+			>
+			<h2 style="margin: 0; flex-grow: 1">SimplyPrint Label</h2>
+			<!-- <button id="printButton">Print</button> -->
+			<button id="copy">Copy</button>
+		</div>
+		<div id="printPage" style="display: none">
+			<p>Printer: <span id="printer"></span></p>
+			<p>Filament: <span id="filament"></span></p>
+			<p>Color: <span id="color"></span></p>
+			<p>File: <span id="file"></span></p>
+			<p>User: <span id="user"></span></p>
+			<!-- <p>Mail:<span id="mail"></span></p> -->
+			<p>Cost: <span id="cost"></span></p>
+			<p>Start time: <span id="start_time"></span></p>
+			<!-- <p>End time:<span id="end_time"></span></p> -->
+			<p>Duration: <span id="duration"></span></p>
+		</div>
+		<div id="wrongPage">
+			<p>Please navigate to a SimplyPrint job page to use this extension.</p>
+		</div>
+		<script src="popup.js"></script>
+	</body>
+</html>

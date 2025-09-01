@@ -1,0 +1,34 @@
+{
+	"manifest_version": 2,
+	"name": "SP-jobprinter",
+	"version": "0.1",
+
+	"description": "Print a label from SimplyPrint",
+
+	"permissions": [
+		"webRequest",
+		"webRequestBlocking",
+		"storage",
+		"activeTab",
+		"tabs",
+		"https://simplyprint.io/api/*"
+	],
+
+	"browser_action": {
+		"default_popup": "popup.html",
+		"default_title": "SP-jobprinter",
+		"default_icon": "printer-duotone.svg"
+	},
+
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["https://simplyprint.io/panel/jobs/*"],
+			"js": ["content.js"]
+		}
+	]
+}

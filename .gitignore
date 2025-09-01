@@ -1,0 +1,29 @@
+# Browser extension build/distribution files
+.amo-upload-uuid
+.web-extension-id
+*.zip
+*.xpi
+*.crx
+web-ext-artifacts/
+dist/
+build/
+
+# Development tools
+.vscode/
+*.log
+
+# OS generated files
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Icon?
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+temp/
