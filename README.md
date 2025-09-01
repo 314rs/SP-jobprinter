@@ -11,7 +11,7 @@ Copy button copies content to clipboard.
 
 ## Download
 
-Download the program for your platform from the latest [build action]().
+Download the addon from the latest [release](https://github.com/314rs/SP-jobprinter/releases/latest).
 
 ## License
 
