@@ -30,5 +30,11 @@
 			"matches": ["https://simplyprint.io/panel/jobs/*"],
 			"js": ["content.js"]
 		}
-	]
+	],
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "f2474eea-2aae-42b3-8386-11a79a318168"
+		}
+	}
 }
