@@ -19,7 +19,6 @@ jobs:
         uses: kewisch/action-web-ext@v1
         with:
           cmd: build
-          source: src
           filename: "{name}-{version}.xpi"
           ignoreFiles: '[ "deno.jsonc"]'
 
