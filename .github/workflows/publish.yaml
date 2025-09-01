@@ -50,7 +50,7 @@ jobs:
           # https://extensionworkshop.com/documentation/develop/web-ext-command-reference/#web-ext-sign
           # for more information. You can leave out metaDataFile if all you want to set is approval
           # notes, release notes, or a license.
-          metaDataFile: amo_metadata.json
+          # metaDataFile: amo_metadata.json
           approvalNotes: "Please find more information at https://github.com/kewisch/action-web-ext"
           releaseNotes: ${{ github.event.release.body }}
 
