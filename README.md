@@ -3,7 +3,7 @@
 <img src="./printer-color.svg" alt="logo" align="right" align="left" width="100" height="100" />
 
 This is a firefox addon that formats some usefull stats of a simplyprint print job.
-Visit the jobpage (_https://simplyprint.io/panel/jobs/<job-uuid>_) and click on extension icon.
+Visit the jobpage (_[https://simplyprint.io/panel/jobs/\<job-uuid\>]()_) and click on extension icon.
 Copy button copies content to clipboard.
 
 > [!WARNING]
