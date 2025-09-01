@@ -27,12 +27,12 @@ jobs:
               with:
                   cmd: build
 
-            - name: 'Collect sources'
-              run: git archive --format=zip --output=sources.zip ${{ github.ref }}
+            # - name: 'Collect sources'
+            #   run: git archive --format=zip --output=sources.zip ${{ github.ref }}
 
-            - name: 'Collect metadata'
-              id: metadata
-              run: echo "json=$(jq -c . < amo_metadata.json)" >> $GITHUB_OUTPUT
+            # - name: 'Collect metadata'
+            #   id: metadata
+            #   run: echo "json=$(jq -c . < amo_metadata.json)" >> $GITHUB_OUTPUT
 
             - name: 'web-ext sign AMO'
               id: web-ext-sign
@@ -45,7 +45,6 @@ jobs:
                   # policy, you can use sourceCode with a zip file of the original sources. Submitting
                   # source code is not always required, don't do so if you don't need to.
                   source: ${{ steps.web-ext-build.outputs.target }}
-                  sourceCode: sources.zip
                   channel: unlisted
 
                   # Various metadata you can set through the API. See the documentation for the
