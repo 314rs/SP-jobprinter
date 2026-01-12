@@ -9,6 +9,7 @@ Copy button copies content to clipboard.
 > [!WARNING]
 > This addon uses the internal simplyprint api and may break. If that happes, please open an issue.
 
+
 ## Download
 
 Download the addon from the latest [release](https://github.com/314rs/SP-jobprinter/releases/latest).
