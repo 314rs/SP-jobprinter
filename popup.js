@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-	document.getElementById('copy').addEventListener('click', copyToClipboard);
+	document.getElementById('copyButton').addEventListener('click', copyToClipboard);
+	document.getElementById('printButton').addEventListener('click', printLabel);
 
 	// Check if we're on the correct page
 	browser.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 		const currentUrl = tabs[0].url;
 		if (currentUrl && currentUrl.includes('simplyprint.io/panel/jobs/')) {
 			document.getElementById('printPage').style.display = 'block';
-			document.getElementById('copy').style.display = 'inline-block';
+			document.getElementById('copyButton').style.display = 'inline-block';
 			document.getElementById('wrongPage').style.display = 'none';
 			loadJobData();
 		} else {
 			document.getElementById('printPage').style.display = 'none';
-			document.getElementById('copy').style.display = 'none';
-			document.getElementById('printPage').style.display = 'none';
+			document.getElementById('copyButton').style.display = 'none';
 			document.getElementById('wrongPage').style.display = 'block';
 		}
 	});
@@ -29,6 +29,7 @@ const cost = document.getElementById('cost');
 
 function loadJobData() {
 	browser.storage.local.get(['jobDetails']).then((result) => {
+		// console.log(result.jobDetails);
 		if (result.jobDetails) {
 			const job = result.jobDetails.job;
 
@@ -64,4 +65,35 @@ function copyToClipboard() {
 	const divContents = document.getElementById('printPage').innerText;
 	const cleanedContents = divContents.replace(/\n\s*\n/g, '\n').trim();
 	navigator.clipboard.writeText(cleanedContents);
+}
+
+function printLabel() {
+	const divContents = document.getElementById('printPage').innerHTML;
+	const html = `
+		<html>
+		<head>
+			<title>Print Label</title>
+			<style>
+				* { margin: 0; padding: 0; box-sizing: border-box; }
+				body {
+					font-family: Arial, sans-serif;
+					height: 2in;
+					width: 4in;
+					border: 1px solid red;
+				}
+				@media print {
+					@page { size: 4in 2in; margin: 0; }
+				}
+			</style>
+		</head>
+		<body>${divContents}</body>
+		</html>
+	`;
+	const blob = new Blob([html], { type: 'text/html' });
+	const url = URL.createObjectURL(blob);
+	const printWindow = window.open(url);
+	printWindow.addEventListener('load', () => {
+		printWindow.print();
+		URL.revokeObjectURL(url);
+	});
 }

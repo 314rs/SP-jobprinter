@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8" />
 		<link
 			rel="stylesheet"
 			type="text/css"
@@ -36,7 +36,8 @@
 				body * {
 					visibility: hidden;
 				}
-				#printPage, #printPage * {
+				#printPage,
+				#printPage * {
 					visibility: visible;
 				}
 				#printPage {
@@ -50,14 +51,10 @@
 	</head>
 	<body>
 		<div style="display: flex; align-items: center; margin-bottom: 10px">
-			<img
-				src="printer-color.svg"
-				alt="Printer Logo"
-				style="width: 32px; height: 32px; margin-right: 10px"
-			>
+			<img src="printer-color.svg" alt="Printer Logo" style="width: 32px; height: 32px; margin-right: 10px" />
 			<h2 style="margin: 0; flex-grow: 1">SimplyPrint Label</h2>
-			<!-- <button id="printButton">Print</button> -->
-			<button id="copy">Copy</button>
+			<button id="printButton">Print</button>
+			<button id="copyButton">Copy</button>
 		</div>
 		<div id="printPage" style="display: none">
 			<p>Printer: <span id="printer"></span></p>
