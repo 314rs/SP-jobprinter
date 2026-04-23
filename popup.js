@@ -67,26 +67,42 @@ function copyToClipboard() {
 	navigator.clipboard.writeText(cleanedContents);
 }
 
-function printLabel() {
+async function printLabel() {
 	const divContents = document.getElementById('printPage').innerHTML;
+	const logoSvg = await fetch(browser.runtime.getURL('printer-color.svg')).then((r) => r.text());
 	const html = `
 		<html>
 		<head>
 			<title>Print Label</title>
 			<style>
-				* { margin: 0; padding: 0; box-sizing: border-box; }
+				body * {
+					margin: 0;
+					padding: 0;
+					box-sizing: border-box;
+				}
 				body {
 					font-family: Arial, sans-serif;
-					height: 2in;
-					width: 4in;
-					border: 1px solid red;
+					// height: 2in;
+					// width: 4in;
+					// border: 1px solid red;
+					position: relative;
+				}
+				#logo {
+					position: absolute;
+					top: 6px;
+					right: 6px;
+					width: 40px;
+					height: 40px;
 				}
 				@media print {
-					@page { size: 4in 2in; margin: 0; }
+					@page { size: 4in 2in landscape; margin: 0; }
 				}
 			</style>
 		</head>
-		<body>${divContents}</body>
+		<body>
+			<div id="logo">${logoSvg}</div>
+			${divContents}
+		</body>
 		</html>
 	`;
 	const blob = new Blob([html], { type: 'text/html' });
@@ -95,5 +111,6 @@ function printLabel() {
 	printWindow.addEventListener('load', () => {
 		printWindow.print();
 		URL.revokeObjectURL(url);
+		printWindow.addEventListener('afterprint', () => printWindow.close()); // TODO: test this.
 	});
 }

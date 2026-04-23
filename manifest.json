@@ -18,6 +18,8 @@
 		"persistent": false
 	},
 
+	"web_accessible_resources": ["printer-color.svg"],
+
 	"browser_specific_settings": {
 		"gecko": {
 			"id": "sp-jobprinter@14rs.de"
