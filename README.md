@@ -13,6 +13,12 @@ Copy button copies content to clipboard.
 
 Download the addon from the latest [release](https://github.com/314rs/SP-jobprinter/releases/latest).
 
+## Dev
+
+```zsh
+web-ext run
+```
+
 ## License
 
 This software is open source and released under the [MIT License](LICENSE.txt).
