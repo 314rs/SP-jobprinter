@@ -75,7 +75,8 @@ async function printLabel() {
 	const html = `
 		<html>
 		<head>
-			<title>Print Label</title>
+			<meta charset="utf-8">
+		<title>Print Label</title>
 			<style>
 				body * {
 					margin: 0;
@@ -113,7 +114,7 @@ async function printLabel() {
 		</body>
 		</html>
 	`;
-	const blob = new Blob([html], { type: 'text/html' });
+	const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
 	const url = URL.createObjectURL(blob);
 	const printWindow = window.open(url);
 	printWindow.addEventListener('load', () => {
