@@ -88,11 +88,11 @@ async function printLabel() {
 					// width: 4in;
 					border: 1px solid red;
 					position: relative;
-					font-family: "Century Gothic", sans-serif;
+					// font-family: "Century Gothic", sans-serif;
 
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: elipsis;
+					// white-space: nowrap;
+					// overflow: hidden;
+					// text-overflow: elipsis;
 				}
 				#logo {
 					position: absolute;
@@ -103,7 +103,7 @@ async function printLabel() {
 				}
 				@media print {
 					@page { size: 4in 2in landscape; margin: 0; }
-					* { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+					// * { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 				}
 			</style>
 		</head>
