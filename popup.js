@@ -26,12 +26,14 @@ const duration = document.getElementById('duration');
 const printer = document.getElementById('printer');
 const color = document.getElementById('color');
 const cost = document.getElementById('cost');
+const details = document.getElementById('details');
 
 function loadJobData() {
 	browser.storage.local.get(['jobDetails']).then((result) => {
-		// console.log(result.jobDetails);
+		console.log(result.jobDetails.job);
 		if (result.jobDetails) {
 			const job = result.jobDetails.job;
+			details.textContent = JSON.stringify(job, null, 2);
 
 			file.textContent = job.file;
 
@@ -62,13 +64,13 @@ function loadJobData() {
 }
 
 function copyToClipboard() {
-	const divContents = document.getElementById('printPage').innerText;
+	const divContents = document.getElementById('copyContent').innerText;
 	const cleanedContents = divContents.replace(/\n\s*\n/g, '\n').trim();
 	navigator.clipboard.writeText(cleanedContents);
 }
 
 async function printLabel() {
-	const divContents = document.getElementById('printPage').innerHTML;
+	const divContents = document.getElementById('copyContent').innerHTML;
 	const logoSvg = await fetch(browser.runtime.getURL('printer-color.svg')).then((r) => r.text());
 	const html = `
 		<html>
@@ -81,11 +83,16 @@ async function printLabel() {
 					box-sizing: border-box;
 				}
 				body {
-					font-family: Arial, sans-serif;
+					font-family: "Century Gothic", sans-serif;
 					// height: 2in;
 					// width: 4in;
-					// border: 1px solid red;
+					border: 1px solid red;
 					position: relative;
+					font-family: "Century Gothic", sans-serif;
+
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: elipsis;
 				}
 				#logo {
 					position: absolute;
@@ -96,6 +103,7 @@ async function printLabel() {
 				}
 				@media print {
 					@page { size: 4in 2in landscape; margin: 0; }
+					* { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 				}
 			</style>
 		</head>

@@ -2,18 +2,13 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
-		/>
 		<style>
 			body {
-				width: 400px;
+				width: 450px;
 				/* min-height: 300px; */
 				height: min-content;
 				padding: 10px;
-				font-family: Arial, sans-serif;
+				font-family: "Poppins", "Century Gothic", sans-serif;
 			}
 			#jsonDisplay {
 				background: #f5f5f5;
@@ -31,6 +26,12 @@
 				cursor: pointer;
 				border: none;
 				border-radius: 6px;
+			}
+
+			#printPage p {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: elipsis;
 			}
 			@media print {
 				body * {
@@ -50,23 +51,26 @@
 		</style>
 	</head>
 	<body>
-		<div style="display: flex; align-items: center; margin-bottom: 10px">
-			<img src="printer-color.svg" alt="Printer Logo" style="width: 32px; height: 32px; margin-right: 10px" />
+		<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px">
+			<img src="printer-color.svg" alt="Printer Logo" style="width: 32px; height: 32px" />
 			<h2 style="margin: 0; flex-grow: 1">SimplyPrint Label</h2>
 			<button id="printButton">Print</button>
 			<button id="copyButton">Copy</button>
 		</div>
 		<div id="printPage" style="display: none">
-			<p>Printer: <span id="printer"></span></p>
-			<p>Filament: <span id="filament"></span></p>
-			<p>Color: <span id="color"></span></p>
-			<p>File: <span id="file"></span></p>
-			<p>User: <span id="user"></span></p>
-			<!-- <p>Mail:<span id="mail"></span></p> -->
-			<p>Cost: <span id="cost"></span></p>
-			<p>Start time: <span id="start_time"></span></p>
-			<!-- <p>End time:<span id="end_time"></span></p> -->
-			<p>Duration: <span id="duration"></span></p>
+			<div id="copyContent">
+				<p>Printer: <span id="printer"></span></p>
+				<p>Filament: <span id="filament"></span></p>
+				<p>Color: <span id="color"></span></p>
+				<p>File: <span id="file"></span></p>
+				<p>User: <span id="user"></span></p>
+				<p>Cost: <span id="cost"></span></p>
+				<p>Start time: <span id="start_time"></span></p>
+				<p>Duration: <span id="duration"></span></p>
+			</div>
+			<details>
+				<pre id="details"></pre>
+			</details>
 		</div>
 		<div id="wrongPage">
 			<p>Please navigate to a SimplyPrint job page to use this extension.</p>
