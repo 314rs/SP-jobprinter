@@ -1,11 +1,19 @@
 {
 	"manifest_version": 2,
 	"name": "SP-jobprinter",
-	"version": "1.4",
+	"version": "2.0",
 
 	"description": "Print a label from SimplyPrint",
 
-	"permissions": ["webRequest", "webRequestBlocking", "storage", "activeTab", "tabs", "https://simplyprint.io/api/*"],
+	"permissions": [
+		"data_collection_permissions",
+		"webRequest",
+		"webRequestBlocking",
+		"storage",
+		"activeTab",
+		"tabs",
+		"https://simplyprint.io/api/*"
+	],
 
 	"browser_action": {
 		"default_popup": "popup.html",
