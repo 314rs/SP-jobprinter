@@ -5,15 +5,7 @@
 
 	"description": "Print a label from SimplyPrint",
 
-	"permissions": [
-		"data_collection_permissions",
-		"webRequest",
-		"webRequestBlocking",
-		"storage",
-		"activeTab",
-		"tabs",
-		"https://simplyprint.io/api/*"
-	],
+	"permissions": ["webRequest", "webRequestBlocking", "storage", "activeTab", "tabs", "https://simplyprint.io/api/*"],
 
 	"browser_action": {
 		"default_popup": "popup.html",
@@ -30,7 +22,10 @@
 
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "sp-jobprinter@14rs.de"
+			"id": "sp-jobprinter@14rs.de",
+			"data_collection_permissions": {
+				"required": ["none"]
+			}
 		}
 	}
 }
