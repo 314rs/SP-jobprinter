@@ -86,7 +86,7 @@ async function printLabel() {
 					font-family: "Century Gothic", sans-serif;
 					// height: 2in;
 					// width: 4in;
-					border: 1px solid red;
+					// border: 1px solid red;
 					position: relative;
 					// font-family: "Century Gothic", sans-serif;
 
@@ -119,6 +119,6 @@ async function printLabel() {
 	printWindow.addEventListener('load', () => {
 		printWindow.print();
 		URL.revokeObjectURL(url);
-		printWindow.addEventListener('afterprint', () => printWindow.close()); // TODO: test this.
+		printWindow.close();
 	});
 }
